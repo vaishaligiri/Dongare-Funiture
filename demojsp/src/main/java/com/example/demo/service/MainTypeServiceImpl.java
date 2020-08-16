@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,14 @@ public class MainTypeServiceImpl implements MainTypeService {
 			return false;
 		}
 
+	}
+
+	@Override
+	public List<MainTypeModel> getAllMainTypes() {
+		// TODO Auto-generated method stub
+		List<MainTypeModel> list=mainTypeRepository.findAll();//select *from tablename
+		System.out.println(list);
+		return list;
 	}
 
 }

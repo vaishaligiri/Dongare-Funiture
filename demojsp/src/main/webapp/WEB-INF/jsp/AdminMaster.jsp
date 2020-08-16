@@ -12,8 +12,6 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -111,10 +109,7 @@
 					<ul id="collapseOne" class="collapse hide" data-parent="#accordion"
 						style="list-style-type: none">
 						<li><a href="MainType">New Type</a></li>
-						<li><a class="btn btn-sm ml-auto text-white mt-1"
-							data-toggle="collapse" href="#" role="button"
-							aria-expanded="false">View Type<i
-								class="fa fa-angle-right ml-1" aria-hidden="true"></i></a></li>
+						<li><a href="viewrecord">View Type</a></li>
 					</ul>
 
 					<button class="btn text-white" type="button" data-toggle="collapse"
