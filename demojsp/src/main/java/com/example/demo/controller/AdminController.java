@@ -5,9 +5,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,22 +50,37 @@ public class AdminController {
 		m.setViewName("MainType");
 		return m;
 	}
+
 	@RequestMapping("/viewrecord")
-	public String viewMainTypeUrl()
-	{
+	public String viewMainTypeUrl() {
 		return "ViewMainType";
 	}
-	@GetMapping(value="/viewall",produces = MediaType.APPLICATION_JSON_VALUE)
+
+	@GetMapping(value = "/viewall", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<MainTypeModel> ViewMainType()
-	{
+	public List<MainTypeModel> ViewMainType() {
 		return mainTypeService.getAllMainTypes();
 	}
+
+	@GetMapping("/deleteMainType")
+	public String deleteRecord(@RequestParam("maintypeid") String maintypeid, Map map) {
+		mainTypeService.isDeleteMainType(Integer.parseInt(maintypeid));
+		
+		return "ViewMainType";
+	}
+	@GetMapping("/updateMainType")
+	public String updateMainType(@RequestParam("maintypeid") String maintypeid,@RequestParam("name") String name,Map  map)
+	{
+		 map.put("id",maintypeid);
+		 map.put("name",name);
+		return "deleteRecord";
+	}
+	@RequestMapping("/addsubtype")
+	public String addSubType()
+	{
+		return "AddSubType";
+	}
 }
-
-
-
-
 
 
 

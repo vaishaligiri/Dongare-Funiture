@@ -34,4 +34,11 @@ public class MainTypeServiceImpl implements MainTypeService {
 		return list;
 	}
 
+	@Override
+	public void isDeleteMainType(int typeid) {
+		// TODO Auto-generated method stub
+		   mainTypeRepository.deleteById(typeid);
+		
+	}
+
 }
